@@ -1,17 +1,25 @@
 # 522_lab1_grp31_Abalone_Size_Prediction
 DSCI 522 Section 2 Group 31 Repository 
 
-Our Analysis will be on Abalone Size Prediction
+## Description
+This project is an analysis of Abalone age using EDA followed by KNN written in python. 
 
-Data is sourced from the following link: https://archive.ics.uci.edu/dataset/1/abalone
+## Instructions
+First the repository must be cloned locally using `git clone` <this repo> 
 
-Instructions from Milestone 1: 
+All dependencies are located in the `environment.yml` file. Install the project environment by running `conda env create --file environment.yml`
+Next Navigate to the Milestone1_XXX_Prediction.ipynb and run all cells. 
 
-In the main README.md file for this project you should include: 
+Note: Data is sourced from the following link: https://archive.ics.uci.edu/dataset/1/abalone
 
-- the project title 
-- the list of contributors/authors 
-- a short summary of the project (view from 10,000 feet) 
-- how to run your data analysis 
-- a list of the dependencies needed to run your analysis 
-- the names of the licenses contained in LICENSE.md
+## Contributors:
+- Yuting Ji
+
+- Gurveer Madurai
+
+- Seungmyun Park
+
+- William Chong
+
+## Liscence 
+MIT License
