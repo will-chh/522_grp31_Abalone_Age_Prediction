@@ -1,14 +1,14 @@
-## Contributor Covenant Code of Conduct
+# Contributor Covenant Code of Conduct
 
-1. Purpose
+## Purpose
 
 This Code of Conduct outlines the standards of behavior expected from all members of Group 31 throughout the DSCI 522 project. Our goal is to maintain a respectful, transparent, collaborative, and professional working environment that enables all teammates to contribute effectively.
 
-2. Scope
+## Scope
 
 This Code of Conduct applies to all project-related interactions, including but not limited to GitHub Discussions and Issues, Slack communication, email exchanges, group meetings (virtual or in person), and collaboration on code, documents, and project planning. It also applies in any public context where a team member is representing the project or group.
 
-3. Our Pledges
+## Our Pledges
 
 We, as contributors and maintainers, pledge to make participation in our project a harassment-free and inclusive experience for everyone. We commit to a team culture grounded in:
 
@@ -22,7 +22,7 @@ We, as contributors and maintainers, pledge to make participation in our project
 
 - Empathy: recognizing the humanity, challenges, and individual contexts of team members.
 
-4. Expected Behavior
+## Expected Behavior
 
 All team members agree to conduct themselves in ways that support a positive and productive working environment. This includes:
 
@@ -40,7 +40,7 @@ All team members agree to conduct themselves in ways that support a positive and
 
 - Helping maintain an environment where everyone feels welcome and supported.
 
-5. Unacceptable Behavior
+## Unacceptable Behavior
 
 Behavior that undermines this environment is not permitted. Examples include, but are not limited to:
 
@@ -64,13 +64,13 @@ Behavior that undermines this environment is not permitted. Examples include, bu
 
 - Any conduct that could reasonably be considered inappropriate in a professional or academic setting
 
-6. Responsibilities
+## Responsibilities
 
 Team members and maintainers are responsible for clarifying expected standards and ensuring the Code of Conduct is upheld. They may take appropriate and fair corrective actions in response to any instance of unacceptable behavior. This includes removing or editing contributions (such as comments, commits, issues, or documentation) that violate this Code, or temporarily/permanently restricting participation if necessary.
 
 Failure to enforce the Code of Conduct in good faith may result in further action decided by the rest of the team or by course instructional staff.
 
-7. Reporting and Conflict Resolution
+## Reporting and Conflict Resolution
 If a concern arises, the following process will be used:
 
 (1) Direct conversation: Individuals involved may first try to resolve the issue privately and professionally.
@@ -81,7 +81,7 @@ If a concern arises, the following process will be used:
 
 (4) Escalation: If the team cannot reach a resolution, the concern will be escalated to the course instructional staff for further guidance.
 
-8. Commitment
+## Commitment
 
 By participating in this project, each member of Group 31 agrees to abide by this Code of Conduct and uphold a healthy, respectful, and productive team environment.
 
