@@ -8,7 +8,7 @@ dependencies:
   - ipykernel
   - nb_conda_kernels
   - otter-grader=6.*
-  - altair-all=5.4.*
+  - altair=5.4.*
   - vega_datasets
   - scipy
   - matplotlib>=3.2.2
