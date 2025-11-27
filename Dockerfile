@@ -1,14 +1,29 @@
-FROM quay.io/jupyter/minimal-notebook:python-3.11.6
+# use the miniforge base, make sure you specify a verion
+FROM condaforge/miniforge3:latest
 
-COPY environment.yml /tmp/environment.yml
+# copy the lockfile into the container
+COPY conda-lock.yml conda-lock.yml
 
-RUN mamba env create -f /tmp/environment.yml && \
-    mamba clean -afy && \
-    /opt/conda/envs/dsci_522_lab_env/bin/python -m ipykernel install --user \
-      --name dsci_522_lab_env \
-      --display-name "Python (dsci_522_lab_env)"
-      
-ENV CONDA_DEFAULT_ENV=dsci_522_lab_env
-ENV PATH="/opt/conda/envs/dsci_522_lab_env/bin:$PATH"
+# setup conda-lock
+RUN conda install -n base -c conda-forge conda-lock -y
 
-WORKDIR /home/jovyan
+# install packages from lockfile into dockerlock environment
+RUN conda-lock install -n dockerlock conda-lock.yml
+
+# make dockerlock the default environment
+RUN echo "source /opt/conda/etc/profile.d/conda.sh && conda activate dockerlock" >> ~/.bashrc
+
+# set the default shell to use bash with login to pick up bashrc
+# this ensures that we are starting from an activated dockerlock environment
+SHELL ["/bin/bash", "-l", "-c"]
+
+# expose JupyterLab port
+EXPOSE 8888
+
+# sets the default working directory
+# this is also specified in the compose file
+WORKDIR /workplace
+
+# run JupyterLab on container start
+# uses the jupyterlab from the install environment
+CMD ["conda", "run", "--no-capture-output", "-n", "dockerlock", "jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--IdentityProvider.token=''", "--ServerApp.password=''"]
