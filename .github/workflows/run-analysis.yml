@@ -2,6 +2,11 @@ name: Run Analysis
 
 env:
   IMAGE_NAME: 522_grp31_abalone_age_prediction
+
+on:
+  # Only manual trigger, no auto runs
+  workflow_dispatch:
+  
 # on:
 #   push:
 #     branches:
