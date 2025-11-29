@@ -1,16 +1,18 @@
 name: Run Analysis
 
-on:
-  push:
-    branches:
-      - main
-  # Manual trigger
-  workflow_dispatch:
-  # Trigger when docker-build workflow completes successfully
-  workflow_run:
-    workflows: ["Update Lock Files and Build Docker Image"]
-    types:
-      - completed
+env:
+  IMAGE_NAME: 522_grp31_abalone_age_prediction
+# on:
+#   push:
+#     branches:
+#       - main
+#   # Manual trigger
+#   workflow_dispatch:
+#   # Trigger when docker-build workflow completes successfully
+#   workflow_run:
+#     workflows: ["Update Lock Files and Build Docker Image"]
+#     types:
+#       - completed
 
 jobs:
   run-analysis:
@@ -43,7 +45,7 @@ jobs:
 
       - name: Pull Docker image
         run: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/docker-condalock-jupyterlab:main
+          docker pull ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
       # explicitly activate the dockerlock environment to run the analysis
       # otherwise comment out the conda run part
@@ -52,9 +54,9 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}:/workspace \
             -w /workspace \
-            ${{ secrets.DOCKER_USERNAME }}/docker-condalock-jupyterlab:main \
+            ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest \
             conda run --no-capture-output -n dockerlock \
-            jupyter nbconvert --to notebook --execute analysis.ipynb --output analysis-output.ipynb
+            jupyter nbconvert --to notebook --execute Milestone1_Abalone_Age_Prediction.ipynb --output analysis-output.ipynb
 
       - name: Upload analysis results
         uses: actions/upload-artifact@v4
