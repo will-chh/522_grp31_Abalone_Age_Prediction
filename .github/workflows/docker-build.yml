@@ -1,7 +1,7 @@
 name: Update Lock Files and Build Docker Image
 
 env:
-  IMAGE_NAME: ${{ lower(github.event.repository.name) }}
+  IMAGE_NAME: 522_grp31_abalone_age_prediction
 on:
   push:
     # trigger when any one of these files have been changed
