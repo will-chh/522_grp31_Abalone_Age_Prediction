@@ -47,8 +47,9 @@ stop: ## stop docker-compose services
 	docker-compose stop
 
 # docker multi architecture build rules (from Claude) -----
+# image_name needs to be lowercase, what the heck!
 DOCKER_USER=willchh
-IMAGE_NAME=$(shell basename $(CURDIR))
+IMAGE_NAME=$(shell basename $(CURDIR) | tr '[:upper:]' '[:lower:]')
 
 .PHONY: docker-build-push
 docker-build-push: ## Build and push multi-arch image to Docker Hub (amd64 + arm64)
