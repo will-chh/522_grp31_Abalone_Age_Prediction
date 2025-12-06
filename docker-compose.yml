@@ -1,6 +1,6 @@
 services:
   abalone_age_prediction-env:
-    build: . # <- comment out for release
+    # build: . # <- comment out for release
     image: willchh/522_grp31_abalone_age_prediction:latest
     ports:
       - "8888:8888"

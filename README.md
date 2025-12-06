@@ -33,6 +33,7 @@ Open the JupyterLab URL displayed in the terminal http://127.0.0.1:8888/lab or s
 
 
 #### Step 4: Run the analysis with the following commands
+Open the Terminal on the jupyter lab on your brower, which is also the Command Line Interface, and run the following commands.
 
 You have two options here: 
 #### Automated Make Commands (make analysis and make report)
@@ -107,6 +108,10 @@ After the report is renderedm, to stop the container, press `Ctrl + C` in the te
 To remove the image that was pulled locally, note the image name and tag from docker-compose.yml and run the following command:
 
 `docker rmi <image_name:tag>`
+
+such as this latest tag as an example:
+
+`docker rmi will-chh/abalone_age_prediction:latest`
 
 ## Contributors:
 - Yuting Ji
