@@ -1,78 +1,112 @@
-# 522_lab1_grp31_Abalone_Size_Prediction
+# Abalone Size Prediction
 DSCI 522 Section 2 Group 31 Repository
 
-# Abalone Abalone, Yummy Yummy in my Tummy! >< 
+#### Abalone Abalone, Yummy Yummy in my Tummy!
 
 Welcome to our Abalone Size Prediction Project! 
+
+This is a data analysis project for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia.
 
 ## Description
 This project aims to predict the age of an abalone from its physical features and sex. The model used in analysis is k-Nearest Neighbhours (k-NN) Regressor. The resulting model estimates the age of new abalone by identifying the k nearest abalones in the training set. 
 
 Our final model results in a Test RMSE = 2.2884 in comparison to the Train RMSE = 1.8626 (with k = 5). 
 
+## Data Source
 The dataset in this project was obtained from the UCI Machine Learning Repository by Warwick Nash et al. and can be found at the link below.
 
 https://archive.ics.uci.edu/dataset/1/abalone 
 
-## Instructions
-First the repository must be cloned locally using `git clone` <this repo> 
+## Instructions on Running the Analysis and Rendering the Quarto Document
 
-Next in your terminal navigate to the root directory of this project and run `jupyter lab` to open the project notebook.
+#### Step 1: Clone our repo
+First the repository must be cloned to your local computer using `git clone https://github.com/will-chh/522_grp31_Abalone_Age_Prediction.git` 
 
-All dependencies require can be found in the `environment.yml` file and must be installed before running the .ipynb notebook.
+#### Step 2: Get Docker Started 
+Initialize the Docker image by navigating to the project root with `cd 522_grp31_Abalone_Age_Prediction` in the terminal and run the following command: `docker compose up`
 
-Install the project environment by running `conda env create --file environment.yml`
+Terminal should now start pulling the docker image, and display the link to jupyter lab as below: 
+![JupyterLab startup screenshot](img/docker1.png)
 
-Lastly navigate to the Milestone1_Abalone_Age_Prediction.ipynb and run all cells. 
+#### Step 3: Loading Docker Container: 
+Open the JupyterLab URL displayed in the terminal http://127.0.0.1:8888/lab or simply type localhost:8888 in your browser.
 
-## Loading Docker Container: 
-Commands Draft: 
 
-#### Build the Docker image locally
-docker build --no-cache -t willchh/522_grp31_abalone_age_prediction:latest .
+#### Step 4: Run the analysis with the following commands
 
-#### Run the container interactively with a shell
-docker run -it --rm \
- -p 8888:8888 \
- -v $(pwd):/workplace \
- -w /workplace \
- willchh/522_grp31_abalone_age_prediction:latest \
- bash
+You have two options here: 
+#### Automated Make Commands (make analysis and make report)
+Running make commands `make analysis` will return the following 7 artifacts:
+1. Cleaned dataset
+data/processed/cleaned_abalone.csv
 
-#### Run your analysis script manually
-python script.py
+2. EDA scatter matrix plot
+results/eda_scatter_matrix.png
 
-## Running Scripts Separately
-#### Step 1: Running only data_import
+3. Training dataset
+data/processed/train.csv
+
+4. Testing dataset
+data/processed/test.csv
+
+5. Trained kNN model
+results/knn_model.pkl
+
+6. Fitted scaler
+results/knn_scaler.pkl
+
+7. Model evaluation plot (Actual vs Predicted)
+results/knn_eval_plot.png
+
+Running `make report` will render the quarto html and pdf files that can be found in the reports folder. 
+
+#### Alternatively, each individual steps of commands are listed below
+Run these commands one by one in the Command Line Interface
+
+```bash
+4.1: Running only data_import
 python utils/01_data_import.py \
   --input_path https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data \
   --output_path data/processed/cleaned_abalone.csv
 
-#### Step 2: Running only data eda
+4.2: Running only data eda
 python utils/02_data_eda.py \
   --input_path data/processed/cleaned_abalone.csv \
   --output_path results/eda_scatter_matrix.png
 
-#### Step 3: Running model preprocess
+4.3: Running model preprocess
 python utils/03_model_preprocess.py \
   --input_path data/processed/cleaned_abalone.csv \
   --train_output data/processed/train.csv \
   --test_output data/processed/test.csv
 
-#### Step 4: Running model eval
+4.5: Running model eval
 python utils/04_model_fit.py \
   --train_path data/processed/train.csv \
   --model_output results/knn_model.pkl \
   --scaler_output results/knn_scaler.pkl \
   --n_neighbors 5
 
-#### Step 5: Model Evaluation Step with plotting Actual vs Predicted Values
+4.5: Model Evaluation Step with plotting Actual vs Predicted Values
 python utils/05_model_eval.py \
   --train_path data/processed/train.csv \
   --test_path data/processed/test.csv \
   --model_path results/knn_model.pkl \
   --scaler_path results/knn_scaler.pkl \
   --plot_output results/knn_eval_plot.png
+
+4.6: Render the Quarto Report
+quarto render report/abalone_report.qmd
+```
+
+#### Step 5: Shutdown the Container:
+After the report is renderedm, to stop the container, press `Ctrl + C` in the terminal and run:
+`docker compose down`
+
+#### Steps 6: Remove the image that was pulled locally
+To remove the image that was pulled locally, note the image name and tag from docker-compose.yml and run the following command:
+
+`docker rmi <image_name:tag>`
 
 ## Contributors:
 - Yuting Ji
@@ -84,5 +118,18 @@ python utils/05_model_eval.py \
 - William Chong
 
 ## License 
-MIT License
-Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license
+This project uses the Abalone Dataset from the UCI Machine Learning Repository, which is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. This license allows sharing and adaptation of the dataset as long as appropriate credit is given.
+
+The Abalone Size Prediction report and written documentation contained in this repository are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license. If re-using or sharing, please provide attribution and link back to this repository.
+
+All software code in this repository is licensed under the MIT License. See the LICENSE.md file for full details.
+
+## References: 
+
+Nash, W. J., Sellers, T. L., Talbot, S. R., Cawthorn, A. J., & Ford, W. B. (1994). The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and Islands of Bass Strait. Sea Fisheries Division Technical Report No. 48.
+
+Dua, D., & Graff, C. (1995). Abalone Data Set. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/1/abalone
+
+Waugh, S. (1995). Extending and benchmarking Cascade-Correlation (PhD thesis). Department of Computer Science, University of Tasmania.
+
+Clark, D., Schreter, Z., & Adams, A. (1996). A Quantitative Comparison of Dystal and Backpropagation. Proceedings of the Australian Conference on Neural Networks (ACNN’96).

@@ -1,6 +1,13 @@
 # use the miniforge base, make sure you specify a verion
 FROM condaforge/miniforge3:latest
 
+# Install system tools (including make)
+RUN apt-get update && apt-get install -y make
+
+# Adding packages for Quarto to run
+RUN wget https://quarto.org/download/latest/quarto-linux-amd64.deb
+RUN dpkg -i quarto-linux-amd64.deb || true
+
 # copy the lockfile into the container
 COPY conda-lock.yml conda-lock.yml
 

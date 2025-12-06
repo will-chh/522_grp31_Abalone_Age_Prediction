@@ -1,0 +1,13 @@
+services:
+  abalone_age_prediction-env:
+    build: . # <- comment out for release
+    image: willchh/522_grp31_abalone_age_prediction:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workplace
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64

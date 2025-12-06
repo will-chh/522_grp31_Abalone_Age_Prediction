@@ -128,3 +128,13 @@ analysis: results/knn_eval_plot.png ## Run full analysis pipeline (import → ED
 
 .PHONY: 05_model_eval
 05_model_eval: results/knn_eval_plot.png ## Run only model evaluation step
+
+# --------------------
+# Quarto Report Render 
+# Output1: html
+# Output2: pdf
+# --------------------
+
+.PHONY: report
+report: ## Render the Quarto report
+	quarto render reports/Abalone_Age_Prediction.qmd
