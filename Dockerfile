@@ -8,10 +8,6 @@ RUN apt-get update && apt-get install -y make
 RUN wget https://quarto.org/download/latest/quarto-linux-amd64.deb
 RUN dpkg -i quarto-linux-amd64.deb || true
 
-# Install TinyTeX for PDF rendering
-RUN quarto install tinytex --quiet \
-    && quarto check tinytex
-
 # copy the lockfile into the container
 COPY conda-lock.yml conda-lock.yml
 

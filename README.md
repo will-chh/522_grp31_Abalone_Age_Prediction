@@ -59,7 +59,7 @@ results/knn_scaler.pkl
 7. Model evaluation plot (Actual vs Predicted)
 results/knn_eval_plot.png
 
-Running `make report` will render the quarto html and pdf files that can be found in the reports folder. 
+Running `make report` will render the quarto html file that can be found in the reports folder. 
 
 #### Alternatively, each individual steps of commands are listed below
 Run these commands one by one in the Command Line Interface
