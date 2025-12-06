@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.8.26" />
 
-<meta name="author" content="Team31: Yuting Ji, Gurveer Madurai, Seungmyun Park &amp; William Chong">
-<meta name="dcterms.date" content="2025-12-06">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Team31: Yuting Ji, Gurveer Madurai, Seungmyun Park &amp; William Chong" />
+<meta name="dcterms.date" content="2025-12-06" />
 
 <title>Abalone Age Prediction based on Physical Measurements and Sex</title>
 <style>
@@ -44,41 +46,19 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="Abalone_Age_Prediction_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Abalone_Age_Prediction_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Abalone_Age_Prediction_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Abalone_Age_Prediction_files/libs/quarto-html/popper.min.js"></script>
-<script src="Abalone_Age_Prediction_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Abalone_Age_Prediction_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Abalone_Age_Prediction_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Abalone_Age_Prediction_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Abalone_Age_Prediction_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Abalone_Age_Prediction_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Abalone_Age_Prediction_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<!-- htmldependencies:E3FAD763 -->
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous" data-relocate-top="true"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
 
-<body class="quarto-light">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul class="collapse">
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">1. Summary</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">2. Introduction</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">3. Methods</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">5. Discussion</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">6. References:</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../Abalone_Age_Prediction.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+  <div id="quarto-toc-target"></div>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -112,21 +92,32 @@ div.csl-indent {
 
 </header>
 
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary">1. Summary</a></li>
+  <li><a href="#introduction" id="toc-introduction">2. Introduction</a></li>
+  <li><a href="#methods" id="toc-methods">3. Methods</a></li>
+  <li><a href="#results" id="toc-results">4. Results</a></li>
+  <li><a href="#discussion" id="toc-discussion">5. Discussion</a></li>
+  <li><a href="#references" id="toc-references">6. References:</a></li>
+  </ul>
+</nav>
 <section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">1. Summary</h2>
+<h2>1. Summary</h2>
 <p>In this project, we aimed to build a regression model using the k-Nearest Neighbours (k-NN) algorithm to predict the age of an abalone using its physical characteristics and sex. Because determining abalone age traditionally requires cutting the shell and counting internal rings—a destructive and time-consuming process—machine learning methods offer a valuable non-destructive alternative for estimating age from easily measurable features. In the dataset used here, age is represented as Rings + 1.5, where the additional 1.5 years accounts for early developmental stages. For example, an abalone with 10 rings would be approximately 11.5 years old.</p>
-<p>Our fitted k-NN regressor (with k = 5) achieved a training RMSE of 1.86 and a test RMSE of 2.29 rings. This means that on unseen data, the model’s predictions typically deviate from the true age by about 2.29 rings. The <a href="#fig-knn-actual-pred" class="quarto-xref">Figure&nbsp;2</a> comparing actual and predicted ring counts shows a generally increasing trend, but also substantial spread—especially among older abalones. This suggests that while k-NN captures the broad relationship between size and age, predicting exact age remains difficult due to biological variability and overlapping physical measurements. Still, the results demonstrate that physical features contain meaningful information about abalone age, and performance could likely improve with hyperparameter tuning or more advanced models.</p>
+<p>Our fitted k-NN regressor (with k = 5) achieved a training RMSE of 1.86 and a test RMSE of 2.29 rings. This means that on unseen data, the model’s predictions typically deviate from the true age by about 2.29 rings. The <a href="#fig-knn-actual-pred" class="quarto-xref">Figure 2</a> comparing actual and predicted ring counts shows a generally increasing trend, but also substantial spread—especially among older abalones. This suggests that while k-NN captures the broad relationship between size and age, predicting exact age remains difficult due to biological variability and overlapping physical measurements. Still, the results demonstrate that physical features contain meaningful information about abalone age, and performance could likely improve with hyperparameter tuning or more advanced models.</p>
 <p>Estimating abalone age is important for marine biology research, sustainable fisheries management, and conservation efforts, yet the traditional ring-counting method is destructive and impractical at scale. A predictive model provides a non-invasive alternative, enabling age estimation for live animals in the field. However, its accuracy is limited by natural growth variability and nonlinear developmental patterns, particularly in older individuals. As a result, while machine learning can support broader age-structure assessments and population monitoring, it may not fully replace precise biological aging methods in contexts where exact age determination is required.</p>
 </section>
 <section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">2. Introduction</h2>
+<h2>2. Introduction</h2>
 <section id="project-goal" class="level4">
-<h4 class="anchored" data-anchor-id="project-goal">2.1 Project Goal:</h4>
+<h4>2.1 Project Goal:</h4>
 <p>The goal of this project is to investigate whether physical features and sex can accurately predict the age of an abalone.</p>
 </section>
 <section id="background" class="level4">
-<h4 class="anchored" data-anchor-id="background">2.2 Background:</h4>
+<h4>2.2 Background:</h4>
 <p>Abalones are marine molluscs that are widely harvested for food and shell products. Understanding their age structure is crucial for fisheries management and conservation planning <span class="citation" data-cites="nash1994">(<a href="#ref-nash1994" role="doc-biblioref">Nash et al. 1994</a>)</span>. However, determining age is not straightforward: the most accurate method requires cutting the shell and counting internal rings under a microscope, which is destructive, labour-intensive, and not feasible at scale for monitoring wild populations.</p>
 <p>The Abalone dataset from the UCI Machine Learning Repository <span class="citation" data-cites="dua1995">(<a href="#ref-dua1995" role="doc-biblioref">Dua and Graff 1995</a>)</span> provides measurements of physical characteristics including:</p>
 <ul>
@@ -137,66 +128,78 @@ div.csl-indent {
 </section>
 </section>
 <section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">3. Methods</h2>
+<h2>3. Methods</h2>
 <section id="data-and-preprocessing" class="level4">
-<h4 class="anchored" data-anchor-id="data-and-preprocessing">3.1 Data and preprocessing</h4>
+<h4>3.1 Data and preprocessing</h4>
 <p>Data were downloaded from the UCI repository <span class="citation" data-cites="dua1995">(<a href="#ref-dua1995" role="doc-biblioref">Dua and Graff 1995</a>)</span> and validated using a pandera schema to check column types, allowed categories for Sex, value ranges, missingness, and duplicate rows. Next, exploratory data analysis (EDA) is performed using the validated dataset. This helped to understand the relationships between physical measurements and age and check for nonlinear patterns and outliers.</p>
 <p>Before fitting the model, we performed several preprocessing steps to ensure data quality and suitability for machine learning. We first applied one-hot encoding to the Sex variable to convert it into numeric indicator features. Next, we split the dataset into an 80% training set and a 20% test set to allow for an unbiased evaluation of model performance. Finally, we used deepchecks to examine potential data issues, including feature–label correlations, feature–feature correlations, and label drift between the training and test sets. These checks helped confirm that our features were appropriate for modeling and that no major distribution shifts existed between the training and evaluation data. Highly correlated weight-related features were expected due to shared biological growth processes, and the checks confirmed that there were no severe issues beyond this expected multicollinearity.</p>
 </section>
 <section id="model-selection" class="level4">
-<h4 class="anchored" data-anchor-id="model-selection">3.2 Model Selection</h4>
+<h4>3.2 Model Selection</h4>
 <p>We used a k-nearest neighbours (k-NN) regressor to predict abalone age from physical measurements and sex. For any new abalone, the model identifies the k most similar individuals in the standardized feature space, based on Euclidean distance, and predicts age by averaging the number of rings among those neighbours. We selected k-NN because it is a non-parametric and flexible method that makes no strong assumptions about linearity, offers intuitive predictions grounded in similarity to known examples, and is well suited to capturing the nonlinear relationships between size, weight, sex, and age observed in abalone growth patterns <span class="citation" data-cites="waugh1995">(<a href="#ref-waugh1995" role="doc-biblioref">Waugh 1995</a>)</span>.</p>
 </section>
 <section id="model-evaluation" class="level4">
-<h4 class="anchored" data-anchor-id="model-evaluation">3.3 Model Evaluation</h4>
-<p>Model performance is assessed, which loads the saved k-NN model and scaler, applies them to the training and test sets, and computes the RMSE for both splits. The script also generates an actual-versus-predicted plot for the test set (<a href="#fig-knn-actual-pred" class="quarto-xref">Figure&nbsp;2</a>). RMSE is an appropriate evaluation metric because the target variable, Rings, is continuous, and the metric penalizes larger errors more severely, making it well suited for age-estimation tasks where extreme mispredictions are particularly undesirabl</p>
+<h4>3.3 Model Evaluation</h4>
+<p>Model performance is assessed, which loads the saved k-NN model and scaler, applies them to the training and test sets, and computes the RMSE for both splits. The script also generates an actual-versus-predicted plot for the test set (<a href="#fig-knn-actual-pred" class="quarto-xref">Figure 2</a>). RMSE is an appropriate evaluation metric because the target variable, Rings, is continuous, and the metric penalizes larger errors more severely, making it well suited for age-estimation tasks where extreme mispredictions are particularly undesirabl</p>
 </section>
 </section>
 <section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">4. Results</h2>
+<h2>4. Results</h2>
 <section id="exploratory-data-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="exploratory-data-analysis">4.1 Exploratory Data Analysis</h4>
-<p><a href="#fig-eda-plot" class="quarto-xref">Figure&nbsp;1</a> summarizes how each physical measurement relates to the number of rings, which serves as a proxy for abalone age. In general, positive associations are observed across most predictors, indicating that larger and heavier abalones tend to have more rings. The observed patterns are nonlinear, with growth appearing faster in younger abalones and gradually slowing for older ones. This widening spread suggests that abalones with similar sizes can still vary considerably in age. Weight-based variables show particularly strong correlations with age, while height appears to be the least informative due to its very narrow range.</p>
+<h4>4.1 Exploratory Data Analysis</h4>
+<p><a href="#fig-eda-plot" class="quarto-xref">Figure 1</a> summarizes how each physical measurement relates to the number of rings, which serves as a proxy for abalone age. In general, positive associations are observed across most predictors, indicating that larger and heavier abalones tend to have more rings. The observed patterns are nonlinear, with growth appearing faster in younger abalones and gradually slowing for older ones. This widening spread suggests that abalones with similar sizes can still vary considerably in age. Weight-based variables show particularly strong correlations with age, while height appears to be the least informative due to its very narrow range.</p>
 <p>Across all measurements, the three sex categories overlap substantially, indicating that sex alone does not form clear separations in age patterns. Because of this, sex is unlikely to serve as a strong individual predictor at this stage, although it is still included as a categorical feature for completeness.</p>
-<div id="fig-eda-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<div id="fig-eda-plot" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-eda-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../results/eda_scatter_matrix.png" class="img-fluid figure-img" style="width:100.0%">
+<img src="../results/eda_scatter_matrix.png" class="img-fluid" style="width:100.0%" />
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eda-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Comparison of the relationships between abalone physical measurements and age (Rings)
+Figure 1: Comparison of the relationships between abalone physical measurements and age (Rings)
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="model-performance" class="level4">
-<h4 class="anchored" data-anchor-id="model-performance">4.2 Model Performance</h4>
-<p>To evaluate whether physical characteristics can predict age, we trained a k-Nearest Neighbours regression model (k = 5) using scaled predictors. <a href="#fig-knn-actual-pred" class="quarto-xref">Figure&nbsp;2</a> shows the relationship between actual and predicted ring counts on the test set. The dashed line represents perfect prediction. While the model captures the general increasing trend, there is considerable spread, especially for older abalones. This indicates that predictions become less reliable as age increases, which is consistent with the biological variability seen in the EDA.</p>
-<div id="fig-knn-actual-pred" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<h4>4.2 Model Performance</h4>
+<p>To evaluate whether physical characteristics can predict age, we trained a k-Nearest Neighbours regression model (k = 5) using scaled predictors. <a href="#fig-knn-actual-pred" class="quarto-xref">Figure 2</a> shows the relationship between actual and predicted ring counts on the test set. The dashed line represents perfect prediction. While the model captures the general increasing trend, there is considerable spread, especially for older abalones. This indicates that predictions become less reliable as age increases, which is consistent with the biological variability seen in the EDA.</p>
+<div id="fig-knn-actual-pred" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-knn-actual-pred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../results/knn_eval_plot.png" class="img-fluid figure-img" style="width:100.0%">
+<img src="../results/knn_eval_plot.png" class="img-fluid" style="width:100.0%" />
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-knn-actual-pred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Actual vs.&nbsp;predicted number of rings for the kNN regression model.
+Figure 2: Actual vs. predicted number of rings for the kNN regression model.
 </figcaption>
 </figure>
 </div>
-<p>Model accuracy is summarized using RMSE, with a training RMSE of 1.86 and a test RMSE of 2.29. These values are reported in <a href="#tbl-rmse" class="quarto-xref">Table&nbsp;1</a>, which compares model performance on the training and test sets. Given that abalone age in years is calculated as Rings + 1.5, a test RMSE of 2.29 rings implies that the model typically predicts age with an error of roughly 2.29 years. This level of accuracy is reasonable for a simple, non-parametric model and suggests that physical features provide useful—but imperfect—information about age.</p>
+<p>Model accuracy is summarized using RMSE, with a training RMSE of 1.86 and a test RMSE of 2.29. These values are reported in <a href="#tbl-rmse" class="quarto-xref">Table 1</a>, which compares model performance on the training and test sets. Given that abalone age in years is calculated as Rings + 1.5, a test RMSE of 2.29 rings implies that the model typically predicts age with an error of roughly 2.29 years. This level of accuracy is reasonable for a simple, non-parametric model and suggests that physical features provide useful—but imperfect—information about age.</p>
 <div class="cell" data-execution_count="3">
-<div id="tbl-rmse" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
-<figure class="quarto-float quarto-float-tbl figure">
+<div id="tbl-rmse" class="cell quarto-float quarto-figure quarto-figure-center" data-execution_count="3">
+<figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: RMSE values for training and test data.
+Table 1: RMSE values for training and test data.
 </figcaption>
 <div aria-describedby="tbl-rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe do-not-create-environment cell caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr class="header">
+<tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">Dataset</th>
 <th data-quarto-table-cell-role="th">RMSE</th>
@@ -225,19 +228,16 @@ Table&nbsp;1: RMSE values for training and test data.
 </section>
 </section>
 <section id="discussion" class="level2">
-<h2 class="anchored" data-anchor-id="discussion">5. Discussion</h2>
-<p>The EDA and modelling results indicate that abalone age is broadly reflected in its size and weight, although substantial natural variability and nonlinear growth patterns limit prediction accuracy. The widening spread in <a href="#fig-knn-actual-pred" class="quarto-xref">Figure&nbsp;2</a>, along with the moderate RMSE scores, suggests that physical measurements become weaker indicators of age as abalones grow older.</p>
+<h2>5. Discussion</h2>
+<p>The EDA and modelling results indicate that abalone age is broadly reflected in its size and weight, although substantial natural variability and nonlinear growth patterns limit prediction accuracy. The widening spread in <a href="#fig-knn-actual-pred" class="quarto-xref">Figure 2</a>, along with the moderate RMSE scores, suggests that physical measurements become weaker indicators of age as abalones grow older.</p>
 <p>From a fisheries and conservation standpoint, the model is still valuable because it enables non-destructive age estimation from easily collected measurements. This makes it useful for population-level assessments where approximate age ranges are sufficient. However, the prediction error of roughly two rings may be too large for fine-grained applications, such as distinguishing between neighbouring age classes for precise stock assessments.</p>
 <p>Several assumptions and limitations must also be acknowledged. The model assumes that the abalone dataset <span class="citation" data-cites="dua1995">(<a href="#ref-dua1995" role="doc-biblioref">Dua and Graff 1995</a>)</span> is representative of real-world populations, even though abalone growth varies across different habitats and environments. Many weight-based predictors are highly correlated, which is biologically expected but can make distance-based methods like k-NN sensitive to small measurement fluctuations. Additionally, k-NN cannot extrapolate beyond observed data and performs best when the training feature space is densely populated <span class="citation" data-cites="clark1996">(<a href="#ref-clark1996" role="doc-biblioref">Clark, Schreter, and Adams 1996</a>)</span>.</p>
 <p>Future work could include tuning the hyperparameters of the model, such as the value of k and the choice of distance metric, exploring more expressive models like random forests or gradient boosting, and engineering new features that capture biological growth ratios or nonlinear interactions. Methods that explicitly model the nonlinear relationship between age and physical size may also improve predictive performance.</p>
 <p>Overall, the current k-NN model provides a reasonable baseline and demonstrates that physical measurements contain meaningful information about abalone age. However, additional modelling, feature engineering, and validation are needed before the model could be applied reliably in operational or management settings.</p>
 </section>
 <section id="references" class="level2 unnumbered">
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6. References:</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<h2 class="unnumbered">6. References:</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-clark1996" class="csl-entry" role="listitem">
 Clark, D., Z. Schreter, and A. Adams. 1996. <span>“A Quantitative Comparison of Dystal and Backpropagation.”</span> In <em>Proceedings of the Australian Conference on Neural Networks (ACNN’96)</em>.
 </div>
@@ -250,9 +250,12 @@ Nash, W. J., T. L. Sellers, S. R. Talbot, A. J. Cawthorn, and W. B. Ford. 1994. 
 <div id="ref-waugh1995" class="csl-entry" role="listitem">
 Waugh, S. 1995. <span>“Extending and Benchmarking Cascade-Correlation.”</span> PhD thesis, Department of Computer Science, University of Tasmania.
 </div>
-</div></section></div></main>
+</div>
+</section>
+
+</main>
 <!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -303,13 +306,14 @@ Waugh, S. 1995. <span>“Extending and Benchmarking Cascade-Correlation.”</spa
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -653,7 +657,6 @@ Waugh, S. 1995. <span>“Extending and Benchmarking Cascade-Correlation.”</spa
   </script>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>
