@@ -123,18 +123,6 @@ such as this latest tag as an example:
 - William Chong
 
 ## License 
-This project uses the Abalone Dataset from the UCI Machine Learning Repository, which is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. This license allows sharing and adaptation of the dataset as long as appropriate credit is given.
+MIT License
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license
 
-The Abalone Size Prediction report and written documentation contained in this repository are licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license. If re-using or sharing, please provide attribution and link back to this repository.
-
-All software code in this repository is licensed under the MIT License. See the LICENSE.md file for full details.
-
-## References: 
-
-Nash, W. J., Sellers, T. L., Talbot, S. R., Cawthorn, A. J., & Ford, W. B. (1994). The Population Biology of Abalone (Haliotis species) in Tasmania. I. Blacklip Abalone (H. rubra) from the North Coast and Islands of Bass Strait. Sea Fisheries Division Technical Report No. 48.
-
-Dua, D., & Graff, C. (1995). Abalone Data Set. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/1/abalone
-
-Waugh, S. (1995). Extending and benchmarking Cascade-Correlation (PhD thesis). Department of Computer Science, University of Tasmania.
-
-Clark, D., Schreter, Z., & Adams, A. (1996). A Quantitative Comparison of Dystal and Backpropagation. Proceedings of the Australian Conference on Neural Networks (ACNN’96).
