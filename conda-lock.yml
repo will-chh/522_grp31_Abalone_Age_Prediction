@@ -13,11 +13,11 @@
 version: 1
 metadata:
   content_hash:
-    linux-64: 58447bd429b6666070938f0be36743c2cecb58d4ad9aace3d087601ebbb285f3
-    osx-arm64: 3e0d854343f96a058b14e12514e2c21e714c55c3ecb37cf7b4454d5e9377c9c1
-    osx-64: d606dc926ffeff5aed0792e151aa763f15156cec0be1e4f30df3a3bd86bae4b1
-    win-64: 071532c8aec1156c95f99c9a28d0e4fe9e78cda85495ce9d4f10fd2158cc7bb5
-    linux-aarch64: 7926a24d6bc2f05cbb0e3b4fe266fb41e947f64d37394cfaef87c0cd3cf9ddf4
+    linux-64: f87a2b23511d68efbdd7c6f19868223a6aba0eafca1d96f1999a24160476240f
+    osx-arm64: bc6d0a7c3e700860a6ecf430ffb8f4db1faa03197b258848d16fbf0ca95e29eb
+    osx-64: 516b575d0452f34678cd82a90c6fd4d12cc40c16d5b0790d28d23ef379543691
+    win-64: ea6441c5b1f4c8fc71a4ad137fea5ac39351d19cddc5ae5bdc9bf251a1e61af9
+    linux-aarch64: 790225dd637005d5db98c2f79bd75885ead5872410d85cbad58c607833a016ee
   channels:
   - url: conda-forge
     used_env_vars: []
@@ -854,7 +854,7 @@ package:
   category: main
   optional: false
 - name: backports.zstd
-  version: 1.1.0
+  version: 1.2.0
   manager: conda
   platform: linux-64
   dependencies:
@@ -863,14 +863,14 @@ package:
     python: ''
     python_abi: 3.11.*
     zstd: '>=1.5.7,<1.6.0a0'
-  url: https://conda.anaconda.org/conda-forge/linux-64/backports.zstd-1.1.0-py311h6b1f9c4_1.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/backports.zstd-1.2.0-py311h6b1f9c4_0.conda
   hash:
-    md5: 5f72f984fc74d8e5286095760211c29e
-    sha256: 09d6b8a322418b037e11c22f57f200c5dcbf140d13a81840abaeeb8bee691978
+    md5: 596b9cc36b7af0640825b399e6b11ccc
+    sha256: 922cf0e26929aa34a5ce3e6fbbb6d960be35a146a85a5d8f5e7e16c09e660827
   category: main
   optional: false
 - name: backports.zstd
-  version: 1.1.0
+  version: 1.2.0
   manager: conda
   platform: linux-aarch64
   dependencies:
@@ -878,14 +878,14 @@ package:
     python: 3.11.*
     python_abi: 3.11.*
     zstd: '>=1.5.7,<1.6.0a0'
-  url: https://conda.anaconda.org/conda-forge/linux-aarch64/backports.zstd-1.1.0-py311h6ce31b0_1.conda
+  url: https://conda.anaconda.org/conda-forge/linux-aarch64/backports.zstd-1.2.0-py311h6ce31b0_0.conda
   hash:
-    md5: 75f279eb6fcef180b6382f0e19c80f22
-    sha256: 0851ee6fd37da4da1d0c1c5650f588ce458ad08783c55868272e64854ff627be
+    md5: d14f27b70ae314a2b6c09409089f3954
+    sha256: 745237782116e0a8be7fe9ec63464ee4d80d918048c556b9df825d6be3df265f
   category: main
   optional: false
 - name: backports.zstd
-  version: 1.1.0
+  version: 1.2.0
   manager: conda
   platform: osx-64
   dependencies:
@@ -893,14 +893,14 @@ package:
     python: ''
     python_abi: 3.11.*
     zstd: '>=1.5.7,<1.6.0a0'
-  url: https://conda.anaconda.org/conda-forge/osx-64/backports.zstd-1.1.0-py311hd694d0d_1.conda
+  url: https://conda.anaconda.org/conda-forge/osx-64/backports.zstd-1.2.0-py311hd694d0d_0.conda
   hash:
-    md5: 8050851500bc2ff767771c11a7e0c300
-    sha256: 9bf768a343537081f67a2cb7e61454d1441f82b5aad7ea85d4c18d1b5bc739db
+    md5: 313b462b337ea9c0da9001227683699d
+    sha256: 3d104f88728b869a0065e8b6119e643baa94eb25327ac1fe21cc9e4ec2bd4546
   category: main
   optional: false
 - name: backports.zstd
-  version: 1.1.0
+  version: 1.2.0
   manager: conda
   platform: osx-arm64
   dependencies:
@@ -908,14 +908,14 @@ package:
     python: 3.11.*
     python_abi: 3.11.*
     zstd: '>=1.5.7,<1.6.0a0'
-  url: https://conda.anaconda.org/conda-forge/osx-arm64/backports.zstd-1.1.0-py311h97d6d38_1.conda
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/backports.zstd-1.2.0-py311h97d6d38_0.conda
   hash:
-    md5: 044efc3fd4a0bc4ad1ec98cd56f90e93
-    sha256: e3aee42bad98139f3bb515290db76550a5d2ecc6194f1aae1821e8477b17d3de
+    md5: 9b46dfb4ecef344e7031c82b6d37db49
+    sha256: 443f9799e1135919bde3bf1d1c60c73aa0518fc7beb031389437dfcddb8f9b0d
   category: main
   optional: false
 - name: backports.zstd
-  version: 1.1.0
+  version: 1.2.0
   manager: conda
   platform: win-64
   dependencies:
@@ -925,10 +925,10 @@ package:
     vc: '>=14.3,<15'
     vc14_runtime: '>=14.44.35208'
     zstd: '>=1.5.7,<1.6.0a0'
-  url: https://conda.anaconda.org/conda-forge/win-64/backports.zstd-1.1.0-py311h71c1bcc_1.conda
+  url: https://conda.anaconda.org/conda-forge/win-64/backports.zstd-1.2.0-py311h71c1bcc_0.conda
   hash:
-    md5: 573ce33b3d06d848301a7398adcc3a27
-    sha256: bb2ea89c31bf14528e10342239eb6a7ae095caf291b406c1e7ca25a787a9d7fb
+    md5: d18f06228dc0f29bd654e006e46bcee5
+    sha256: 28984981f212813c0bfec0688d3c34937488ab060f9b16602ef4e7b6a0c3bfe1
   category: main
   optional: false
 - name: beautifulsoup4
@@ -14637,6 +14637,79 @@ package:
   hash:
     md5: 58f67b437acbf2764317ba273d731f1d
     sha256: f3790c88fbbdc55874f41de81a4237b1b91eab75e05d0e58661518ff04d2a8a1
+  category: main
+  optional: false
+- name: vl-convert-python
+  version: 1.8.0
+  manager: conda
+  platform: linux-64
+  dependencies:
+    __glibc: '>=2.17,<3.0.a0'
+    libgcc: '>=14'
+    python: '>=3.11,<3.12.0a0'
+    python_abi: 3.11.*
+  url: https://conda.anaconda.org/conda-forge/linux-64/vl-convert-python-1.8.0-py311h49ec1c0_1.conda
+  hash:
+    md5: 521282f4c182c7fc88345ffde079faee
+    sha256: ce767d72feaf3025a892aab6adc85865afb1ab7eb62543b80a77d7f258031c0f
+  category: main
+  optional: false
+- name: vl-convert-python
+  version: 1.8.0
+  manager: conda
+  platform: linux-aarch64
+  dependencies:
+    libgcc: '>=14'
+    python: '>=3.11,<3.12.0a0'
+    python_abi: 3.11.*
+  url: https://conda.anaconda.org/conda-forge/linux-aarch64/vl-convert-python-1.8.0-py311h19352d5_1.conda
+  hash:
+    md5: 3ed05a8462728fe6c174082b6b00b0eb
+    sha256: 8a800ff5b9c41a1dee0136abfe53f63f740151c1d17baae1ddb001de2f96d483
+  category: main
+  optional: false
+- name: vl-convert-python
+  version: 1.8.0
+  manager: conda
+  platform: osx-64
+  dependencies:
+    __osx: '>=10.13'
+    python: '>=3.11,<3.12.0a0'
+    python_abi: 3.11.*
+  url: https://conda.anaconda.org/conda-forge/osx-64/vl-convert-python-1.8.0-py311hf197a57_1.conda
+  hash:
+    md5: e195a0d2c040b804e935df9c5b6c3d2d
+    sha256: 2e339d3dfe129be3e1788d6c4cef464af82266d76b8700e75e25ab51b774c86b
+  category: main
+  optional: false
+- name: vl-convert-python
+  version: 1.8.0
+  manager: conda
+  platform: osx-arm64
+  dependencies:
+    __osx: '>=11.0'
+    python: '>=3.11,<3.12.0a0'
+    python_abi: 3.11.*
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/vl-convert-python-1.8.0-py311h9408147_1.conda
+  hash:
+    md5: 513bd2e51cafc0fa6c48e8438dae5b52
+    sha256: 605b179eed6b1740d5372689e4c54bccb521cb595239ce417f9b8222ac87d51c
+  category: main
+  optional: false
+- name: vl-convert-python
+  version: 1.8.0
+  manager: conda
+  platform: win-64
+  dependencies:
+    python: '>=3.11,<3.12.0a0'
+    python_abi: 3.11.*
+    ucrt: '>=10.0.20348.0'
+    vc: '>=14.3,<15'
+    vc14_runtime: '>=14.44.35208'
+  url: https://conda.anaconda.org/conda-forge/win-64/vl-convert-python-1.8.0-py311h7b6d46a_1.conda
+  hash:
+    md5: 2a6a5f34d46ade18ecb1db73c603f20f
+    sha256: ce5c564aba68d958da8805ad8bbf2a2c01dd643e106d90e8fd4d85f8f27318d5
   category: main
   optional: false
 - name: wcwidth
