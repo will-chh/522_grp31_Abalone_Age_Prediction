@@ -5,12 +5,6 @@ help: ## Show this help message
 	@echo "Available commands:"
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: all
-all: ## runs the targets: cl, env, build
-	make cl
-	make env
-	make build
-
 .PHONY: cl
 cl: ## create conda lock for multiple platforms
 	# the linux-aarch64 is used for ARM Macs using linux docker container
@@ -71,35 +65,35 @@ docker-build-local: ## Build single-arch image for local testing (current platfo
 # --------------------
 
 # Step 1: data import
-data/processed/cleaned_abalone.csv: utils/01_data_import.py
-	python utils/01_data_import.py \
+data/processed/cleaned_abalone.csv: utils/data_import.py
+	python utils/data_import.py \
 	  --input_path https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data \
 	  --output_path data/processed/cleaned_abalone.csv
 
 # Step 2: EDA
-results/eda_scatter_matrix.png: data/processed/cleaned_abalone.csv utils/02_data_eda.py
-	python utils/02_data_eda.py \
+results/eda_scatter_matrix.png: data/processed/cleaned_abalone.csv utils/data_eda.py
+	python utils/data_eda.py \
 	  --input_path data/processed/cleaned_abalone.csv \
 	  --output_path results/eda_scatter_matrix.png
 
 # Step 3: train/test split
-data/processed/train.csv data/processed/test.csv: data/processed/cleaned_abalone.csv utils/03_model_preprocess.py
-	python utils/03_model_preprocess.py \
+data/processed/train.csv data/processed/test.csv: data/processed/cleaned_abalone.csv utils/model_preprocess.py
+	python utils/model_preprocess.py \
 	  --input_path data/processed/cleaned_abalone.csv \
 	  --train_output data/processed/train.csv \
 	  --test_output data/processed/test.csv
 
 # Step 4: model fitting
-results/knn_model.pkl results/knn_scaler.pkl: data/processed/train.csv utils/04_model_fit.py
-	python utils/04_model_fit.py \
+results/knn_model.pkl results/knn_scaler.pkl: data/processed/train.csv utils/model_fit.py
+	python utils/model_fit.py \
 	  --train_path data/processed/train.csv \
 	  --model_output results/knn_model.pkl \
 	  --scaler_output results/knn_scaler.pkl \
 	  --n_neighbors 5
 
 # Step 5: model evaluation (with plot)
-results/knn_eval_plot.png: data/processed/train.csv data/processed/test.csv results/knn_model.pkl results/knn_scaler.pkl utils/05_model_eval.py
-	python utils/05_model_eval.py \
+results/knn_eval_plot.png: data/processed/train.csv data/processed/test.csv results/knn_model.pkl results/knn_scaler.pkl utils/model_eval.py
+	python utils/model_eval.py \
 	  --train_path data/processed/train.csv \
 	  --test_path data/processed/test.csv \
 	  --model_path results/knn_model.pkl \
@@ -114,20 +108,20 @@ analysis: results/knn_eval_plot.png ## Run full analysis pipeline (import → ED
 # Step-by-step aliases
 # --------------------
 
-.PHONY: 01_data_import
-01_data_import: data/processed/cleaned_abalone.csv ## Run only data import step
+.PHONY: data_import
+data_import: data/processed/cleaned_abalone.csv ## Run only data import step
 
-.PHONY: 02_data_eda
-02_data_eda: results/eda_scatter_matrix.png ## Run only EDA step
+.PHONY: data_eda
+data_eda: results/eda_scatter_matrix.png ## Run only EDA step
 
-.PHONY: 03_model_preprocess
-03_model_preprocess: data/processed/train.csv data/processed/test.csv ## Run only model preprocess step
+.PHONY: model_preprocess
+model_preprocess: data/processed/train.csv data/processed/test.csv ## Run only model preprocess step
 
-.PHONY: 04_model_fit
-04_model_fit: results/knn_model.pkl results/knn_scaler.pkl ## Run only model fit step
+.PHONY: model_fit
+model_fit: results/knn_model.pkl results/knn_scaler.pkl ## Run only model fit step
 
-.PHONY: 05_model_eval
-05_model_eval: results/knn_eval_plot.png ## Run only model evaluation step
+.PHONY: model_eval
+model_eval: results/knn_eval_plot.png ## Run only model evaluation step
 
 # --------------------
 # Quarto Report Render 
@@ -135,10 +129,15 @@ analysis: results/knn_eval_plot.png ## Run full analysis pipeline (import → ED
 # Output2: pdf -- latex not installed yet, removing this 
 # --------------------
 
-.PHONY: report
-report: ## Render the Quarto report
-	quarto render reports/Abalone_Age_Prediction.qmd
+# Real file target for the rendered HTML report
+reports/Abalone_Age_Prediction.html: reports/Abalone_Age_Prediction.qmd results/knn_eval_plot.png
+	quarto render reports/Abalone_Age_Prediction.qmd --to html
 
+.PHONY: report
+report: reports/Abalone_Age_Prediction.html
+
+.PHONY: all
+all: analysis report
 # --------------------
 # Adding make clean to clean up all output files: 
 # --------------------
