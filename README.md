@@ -19,6 +19,11 @@ https://archive.ics.uci.edu/dataset/1/abalone
 
 ## Instructions on Running the Analysis and Rendering the Quarto Document
 
+#### Prerequisites for running our analysis
+1. Please install Docker Desktop and have it Docker Running on the computer. This is required for the Docker image to successfully build and run on your local machine. 
+
+2. Please close all other running Jupyter Lab Terminals on your computer. Or else, it will trigger a Token Conflict Error.
+
 #### Step 1: Clone our repo
 First the repository must be cloned to your local computer using `git clone https://github.com/will-chh/522_grp31_Abalone_Age_Prediction.git` 
 
@@ -34,6 +39,12 @@ Open the JupyterLab URL displayed in the terminal http://127.0.0.1:8888/lab or s
 
 #### Step 4: Run the analysis with the following commands
 Open the Terminal on the jupyter lab on your brower, which is also the Command Line Interface, and run the following commands.
+
+1. Cleaning up all the output files if there are outdated outputs, otherwise, when you run the script, all outputs will automatically get overwritten as well.
+
+You can clear all outputs by running `make clean` in the terminal CLI.
+
+2. Running the Analysis and rendering the reports: 
 
 You have two options here: 
 #### Automated Make Commands (make analysis and make report)
@@ -101,8 +112,10 @@ quarto render report/abalone_report.qmd
 ```
 
 #### Step 5: Shutdown the Container:
-After the report is renderedm, to stop the container, press `Ctrl + C` in the terminal and run:
-`docker compose down`
+After the report is rendered, to stop the container, press `Ctrl + C` to stop running the container in the terminal.
+
+Then fully shut down and remove the container with: `docker compose down`
+
 
 #### Steps 6: Remove the image that was pulled locally
 To remove the image that was pulled locally, note the image name and tag from docker-compose.yml and run the following command:

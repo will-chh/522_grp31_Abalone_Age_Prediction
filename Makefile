@@ -132,9 +132,30 @@ analysis: results/knn_eval_plot.png ## Run full analysis pipeline (import → ED
 # --------------------
 # Quarto Report Render 
 # Output1: html
-# Output2: pdf
+# Output2: pdf -- latex not installed yet, removing this 
 # --------------------
 
 .PHONY: report
 report: ## Render the Quarto report
 	quarto render reports/Abalone_Age_Prediction.qmd
+
+# --------------------
+# Adding make clean to clean up all output files: 
+# --------------------
+
+.PHONY: manual
+manual:
+	rm -f \
+		data/processed/cleaned_abalone.csv \
+		data/processed/train.csv \
+		data/processed/test.csv \
+		results/eda_scatter_matrix.png \
+		results/knn_model.pkl \
+		results/knn_scaler.pkl \
+		results/knn_eval_plot.png
+
+.PHONY: clean
+clean: 
+	rm -f data/processed/*.csv
+	rm -f results/*.png
+	rm -f results/*.pkl
