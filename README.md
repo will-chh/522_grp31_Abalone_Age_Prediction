@@ -108,7 +108,7 @@ python utils/05_model_eval.py \
   --plot_output results/knn_eval_plot.png
 
 4.6: Render the Quarto Report
-quarto render report/abalone_report.qmd
+quarto render reports/Abalone_Age_Prediction.qmd
 ```
 
 #### Step 5: Shutdown the Container:
