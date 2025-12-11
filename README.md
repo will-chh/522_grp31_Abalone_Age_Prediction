@@ -77,30 +77,30 @@ Run these commands one by one in the Command Line Interface
 
 ```bash
 4.1: Running only data_import
-python utils/01_data_import.py \
+python utils/data_import.py \
   --input_path https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data \
   --output_path data/processed/cleaned_abalone.csv
 
 4.2: Running only data eda
-python utils/02_data_eda.py \
+python utils/data_eda.py \
   --input_path data/processed/cleaned_abalone.csv \
   --output_path results/eda_scatter_matrix.png
 
 4.3: Running model preprocess
-python utils/03_model_preprocess.py \
+python utils/model_preprocess.py \
   --input_path data/processed/cleaned_abalone.csv \
   --train_output data/processed/train.csv \
   --test_output data/processed/test.csv
 
 4.5: Running model eval
-python utils/04_model_fit.py \
+python utils/model_fit.py \
   --train_path data/processed/train.csv \
   --model_output results/knn_model.pkl \
   --scaler_output results/knn_scaler.pkl \
   --n_neighbors 5
 
 4.5: Model Evaluation Step with plotting Actual vs Predicted Values
-python utils/05_model_eval.py \
+python utils/model_eval.py \
   --train_path data/processed/train.csv \
   --test_path data/processed/test.csv \
   --model_path results/knn_model.pkl \
@@ -125,6 +125,17 @@ To remove the image that was pulled locally, note the image name and tag from do
 such as this latest tag as an example:
 
 `docker rmi will-chh/abalone_age_prediction:latest`
+
+## Usage
+
+If conda-lock.yml is preferred:
+```bash
+conda-lock install --name 522_grp31_Abalone_Age_Prediction conda-lock.yml
+```
+To run the analysis, run the following from the root of this repository:
+```bash
+jupyter lab
+```
 
 ## Contributors:
 - Yuting Ji
