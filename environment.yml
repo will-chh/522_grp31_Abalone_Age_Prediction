@@ -15,6 +15,6 @@ dependencies:
   - click=8.1.7
   - pip=24.2
   - vl-convert-python=1.8.0
-  - pytest=8.3.0
+  - pytest=8.2.2
   - pip:
       - deepchecks==0.19.1
