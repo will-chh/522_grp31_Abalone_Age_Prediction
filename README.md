@@ -114,6 +114,7 @@ python utils/model_eval.py \
 4.6: Render the Quarto Report
 quarto render reports/Abalone_Age_Prediction.qmd
 ```
+Running `make test` will execute all unit tests in the `tests/` directory using pytest, ensuring that the analysis scripts run correctly.
 
 #### Step 5: Shutdown the Container:
 After the report is rendered, to stop the container, press `Ctrl + C` to stop running the container in the terminal.
