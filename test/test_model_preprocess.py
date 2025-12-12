@@ -1,14 +1,17 @@
-import sys
 import os
 import pandas as pd
+import pytest
 from unittest.mock import patch
+from click.testing import CliRunner
+from utils.model_preprocess import preprocess_and_split, main
 
-sys.path.append("../")
-from utils.model_preprocess import preprocess_and_split
+@pytest.fixture
+def runner():
+    return CliRunner()
 
-def test_preprocess_and_split_basic():
-    # dummy df -- deepcheck requires min 10 values
-    df = pd.DataFrame({
+@pytest.fixture
+def df_fixture():
+    return pd.DataFrame({
         "Length": [0.1,0.2,0.15,0.18,0.22,0.25,0.3,0.35,0.4,0.45],
         "Diameter": [0.3,0.4,0.35,0.38,0.32,0.36,0.42,0.37,0.41,0.44],
         "Height": [0.5,0.6,0.55,0.58,0.52,0.57,0.62,0.59,0.63,0.65],
@@ -20,6 +23,21 @@ def test_preprocess_and_split_basic():
         "Sex": ["M","F","I","M","F","I","M","F","I","M"]
     })
 
+@pytest.fixture
+def mock_split_output(df_fixture):
+    df = df_fixture.drop(columns=['Sex', 'Rings'])
+    df['Sex_I'] = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+    df['Sex_M'] = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+
+    X_train = df.iloc[:5].reset_index(drop=True)
+    X_test = df.iloc[5:].reset_index(drop=True)
+    y_train = df_fixture['Rings'].iloc[:5].reset_index(drop=True)
+    y_test = df_fixture['Rings'].iloc[5:].reset_index(drop=True)
+    
+    return X_train, X_test, y_train, y_test
+
+def test_preprocess_and_split_basic(df_fixture):
+    df = df_fixture
     with patch("utils.model_preprocess.Dataset"), \
          patch("utils.model_preprocess.FeatureLabelCorrelation") as mock_feat_lab, \
          patch("utils.model_preprocess.FeatureFeatureCorrelation") as mock_feat_feat, \
@@ -51,6 +69,56 @@ def test_preprocess_and_split_basic():
 
     print("TEST: model preprocess PASSED")
 
-# Run test directly
-if __name__ == "__main__":
-    test_preprocess_and_split_basic()
+def test_main_cli_success(runner, tmpdir, df_fixture, mock_split_output):
+    input_path = tmpdir.join("validated_input.csv")
+    df_fixture.to_csv(input_path, index=False)
+    train_output = str(tmpdir.join("train.csv"))
+    test_output = str(tmpdir.join("test.csv"))
+
+    with patch("utils.model_preprocess.preprocess_and_split", return_value=mock_split_output) as mock_preprocess:
+        
+        result = runner.invoke(
+            main,
+            [
+                "--input_path", str(input_path), 
+                "--train_output", train_output,
+                "--test_output", test_output,
+                "--test_size", "0.3", 
+                "--random_state", "100"
+            ]
+        )
+        
+        assert result.exit_code == 0
+        
+        mock_preprocess.assert_called_once()
+        args, kwargs = mock_preprocess.call_args
+        assert args[1] == 0.3
+        assert args[2] == 100
+        
+        assert os.path.exists(train_output)
+        assert os.path.exists(test_output)
+        loaded_train = pd.read_csv(train_output)
+        assert loaded_train.shape[0] == 5
+        assert 'Rings' in loaded_train.columns
+
+        expected_columns = [
+            'Length', 'Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 
+            'Viscera_weight', 'Shell_weight', 'Sex_I', 'Sex_M', 'Rings'
+        ]
+
+        assert set(loaded_train.columns) == set(expected_columns)
+        assert 'Length' in loaded_train.columns
+        
+        print("\n✅ CLI Success Test Passed: Files created and logic called correctly.")
+
+def test_main_cli_missing_input(runner):
+    result = runner.invoke(
+        main, 
+        [
+            "--train_output", "dummy_train.csv",
+            "--test_output", "dummy_test.csv"
+        ]
+    )
+    assert result.exit_code != 0
+    assert "Error: Missing option '--input_path'" in result.output
+    print("\n✅ CLI Missing Input Test Passed: Correctly failed on missing argument.")
