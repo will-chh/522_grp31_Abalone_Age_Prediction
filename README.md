@@ -46,8 +46,12 @@ You can clear all outputs by running `make clean` in the terminal CLI.
 
 2. Running the Analysis and rendering the reports: 
 
-You have two options here: 
-#### Automated Make Commands (make analysis and make report)
+You have three options here: 
+#### Option 1: The Master Make Command (make all) - Best Option
+
+Running `make all` is equavalent to running `make analysis` and `make report` all together. It will create a fully updated report in html format all in one go. After running `make all` you do NOT need to run any of the following commands.
+
+#### Option 2: Automated Make Commands (make analysis and make report)
 Running make commands `make analysis` will return the following 7 artifacts:
 1. Cleaned dataset
 data/processed/cleaned_abalone.csv
@@ -72,7 +76,7 @@ results/knn_eval_plot.png
 
 Running `make report` will render the quarto html file that can be found in the reports folder. 
 
-#### Alternatively, each individual steps of commands are listed below
+#### Option 3: Alternatively, each individual steps of commands are listed below
 Run these commands one by one in the Command Line Interface
 
 ```bash
