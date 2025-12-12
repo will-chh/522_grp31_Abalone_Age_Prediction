@@ -1,12 +1,8 @@
 import pytest
 import pandas as pd
-import sys
-import os
-
 from unittest.mock import patch
 from pandera.errors import SchemaErrors
-
-sys.path.append('../')
+from click.testing import CliRunner
 from utils.data_import import load_and_validate_abalone, main
 
 
@@ -38,6 +34,10 @@ def mock_abalone_df_invalid():
         'Rings': [0]
     })
 
+@pytest.fixture
+def runner():
+    return CliRunner()
+
 def test_load_and_validate_abalone_success(mock_abalone_df_valid):
     with patch("pandas.read_csv") as mock_read:
         mock_read.return_value = mock_abalone_df_valid
@@ -53,3 +53,28 @@ def test_load_and_validate_abalone_schema_error(mock_abalone_df_invalid):
             load_and_validate_abalone("dummy_url.csv")
         assert "Rings" in str(excinfo.value)
         print("\n✅ Error Test Passed: Invalid data correctly raised SchemaError.")
+
+def test_main_cli_success(runner, tmpdir, mock_abalone_df_valid):
+    input_path = "dummy_url.csv" 
+    output_path = tmpdir.join("validated_abalone.csv") 
+    with patch("utils.data_import.load_and_validate_abalone", return_value=mock_abalone_df_valid) as mock_logic:
+        result = runner.invoke(
+            main,
+            ["--input_path", input_path, "--output_path", output_path]
+        )
+        assert result.exit_code == 0
+        mock_logic.assert_called_once_with(input_path)
+        assert output_path.check() 
+        loaded_df = pd.read_csv(output_path)
+        assert 'Unnamed: 0' not in loaded_df.columns 
+        assert len(loaded_df) == 3
+        assert f"Validated data saved to {output_path}" in result.output
+        print("\n✅ CLI Success Test Passed: Logic called and file saved.")
+
+def test_main_cli_missing_input(runner, tmpdir):
+    output_path = tmpdir.join("output.csv")
+    result = runner.invoke(main, ["--output_path", output_path])
+    
+    assert result.exit_code != 0
+    assert "Error: Missing option '--input_path'" in result.output
+    print("\n✅ CLI Missing Input Test Passed: Correctly failed on missing argument.")
