@@ -153,6 +153,10 @@ manual:
 		results/knn_scaler.pkl \
 		results/knn_eval_plot.png
 
+.PHONY: test
+test:
+	pytest
+
 .PHONY: clean
 clean: 
 	rm -f data/processed/*.csv
