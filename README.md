@@ -17,7 +17,7 @@ The dataset in this project was obtained from the UCI Machine Learning Repositor
 
 https://archive.ics.uci.edu/dataset/1/abalone 
 
-## Instructions on Running the Analysis and Rendering the Quarto Document
+## Instructions on Running Pytest Unit Testing, the Analysis and Rendering the Quarto Document
 
 #### Prerequisites for running our analysis
 1. Please install Docker Desktop and have it Docker Running on the computer. This is required for the Docker image to successfully build and run on your local machine. 
@@ -37,14 +37,16 @@ Terminal should now start pulling the docker image, and display the link to jupy
 Open the JupyterLab URL displayed in the terminal http://127.0.0.1:8888/lab or simply type localhost:8888 in your browser.
 
 
-#### Step 4: Run the analysis with the following commands
+#### Step 4: Run the analysis and Pytest with the following commands
 Open the Terminal on the jupyter lab on your brower, which is also the Command Line Interface, and run the following commands.
 
 1. Cleaning up all the output files if there are outdated outputs, otherwise, when you run the script, all outputs will automatically get overwritten as well.
 
 You can clear all outputs by running `make clean` in the terminal CLI.
 
-2. Running the Analysis and rendering the reports: 
+2. Next, run `make test` in the terminal, this will start the pytest unit testing to make sure the script does not fail. 
+
+3. Running the Analysis and rendering the reports: 
 
 You have three options here: 
 #### Option 1: The Master Make Command (make all) - Best Option
